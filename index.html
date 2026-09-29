@@ -144,16 +144,106 @@ body strong {
   /*max-height: 100px;*/
 }
 
-nav.navbar.fixed-top.d-flex.d-lg-none.d-md-none.navbar-menu.align-items-center.justify-content-between   > div.container-fluid   > a {
-  margin: 0 auto;
+.site-header-mobile .container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding-inline: clamp(12px, 3.5vw, 24px);
 }
 
-@media (min-width: 600px) {
-  .navbar.navbar-expand-lg.d-none.d-md-block.d-lg-block > .container {
-    margin-right: 0px;
-    margin-left: 15vw;
-    max-width: -webkit-fill-available;
-    max-height: 80px;
+.site-header-mobile .container-fluid > a {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin: 0;
+}
+
+.site-header-mobile .container-fluid > .d-flex {
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+}
+
+.site-header-mobile .logoSite {
+  width: clamp(136px, 40vw, 190px);
+  max-width: 100%;
+  height: auto;
+  max-height: 70px !important;
+}
+
+.site-header-mobile .navbar-toggler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 0 !important;
+  padding: 8px !important;
+}
+
+.site-header-mobile .nav-side {
+  margin-right: 0 !important;
+}
+
+.site-header-mobile .nav-side .nav-link {
+  display: block;
+  padding: 10px 0;
+  line-height: 1.3;
+}
+
+.site-header-mobile #navbarToggleExternalContent {
+  max-height: calc(100dvh - 80px);
+  overflow-y: auto;
+}
+
+@media (min-width: 1200px) {
+  .site-header-desktop > .container {
+    width: calc(100% - 32px);
+    max-width: 1320px;
+    margin-inline: auto;
+    flex-wrap: nowrap;
+    gap: clamp(12px, 1.4vw, 28px);
+  }
+
+  .site-header-desktop .navbar-brand {
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  .site-header-desktop .logoSite {
+    width: clamp(140px, 12vw, 175px);
+    max-height: 75px !important;
+    height: auto;
+  }
+
+  .site-header-desktop #navbarNav {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-right: 0;
+  }
+
+  .site-header-desktop .navbar-nav {
+    flex-wrap: nowrap;
+    gap: clamp(2px, .3vw, 8px);
+    margin-right: 0 !important;
+  }
+
+  .site-header-desktop .navbar-nav .nav-link {
+    white-space: nowrap;
+    padding: 8px clamp(4px, .45vw, 9px);
+    font-size: clamp(13px, 1vw, 16px) !important;
+  }
+
+  .site-header-desktop .areaBotaoBandeira {
+    flex: 0 0 auto;
+    gap: 8px;
+  }
+
+  .site-header-desktop .btn_cta_topo {
+    white-space: nowrap;
+    font-size: clamp(13px, 1vw, 16px) !important;
+    padding: 8px 12px !important;
   }
 }
 
@@ -311,6 +401,17 @@ nav.navbar.fixed-top.d-flex.d-lg-none.d-md-none.navbar-menu.align-items-center.j
   .textoAlinhar {
     text-align: center;
   }
+
+  .conteudoSections p[style*="text-align: justify"] {
+    text-align: left !important;
+  }
+
+  .conteudoSections .botao_whatsapp {
+    max-width: 100%;
+    white-space: nowrap;
+    font-size: 16px !important;
+    padding: 10px 18px !important;
+  }
 }
 
 /* BOTÕES */
@@ -390,7 +491,7 @@ label {
 
 #whats_flutuante .btnZap {
   cursor: pointer;
-  z-index: 1000;
+  z-index: 999999999;
   background-color: #25d366;
   border-radius: 50%;
   width: 65px;
@@ -421,6 +522,8 @@ label {
 .logoFooter img {
     filter: brightness(0) invert(1) !important;
     width: 300px;
+    max-width: 100%;
+    height: auto;
 }
 
 .logoFooter {
@@ -449,9 +552,18 @@ footer .redesSociais {
         margin-top: 20px !important;
     }
 
-    .marginMobile {
-        margin-bottom: 30px !important;
-    }
+}
+
+@media (max-width: 767px) {
+  #fot-04 {
+    padding-bottom: 88px;
+  }
+
+  #fot-04 .copyright {
+    padding-inline: 12px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
 
 .menuRaiz {
@@ -479,6 +591,45 @@ footer .redesSociais {
     transform: translateX(5px) !important;
     color: var(--ia-cor-clara) !important;
     border: 2px solid var(--ia-cor-clara) !important;
+}
+
+.footerPersonalizado .content > .row {
+    margin-inline: 0;
+    gap: 10px;
+}
+
+.footerPersonalizado .content > .row > .col-md-2 {
+    flex: 0 0 45px;
+    width: 45px;
+    padding: 0;
+}
+
+.footerPersonalizado .content > .row > .col-md-10 {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    padding: 0;
+}
+
+.footerPersonalizado .content > .row .textoTextoBranco {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 359px) {
+    .footerPersonalizado .content > .row {
+        gap: 8px;
+    }
+
+    .footerPersonalizado .content > .row > .col-md-2 {
+        flex-basis: 36px;
+        width: 36px;
+    }
+
+    .iconesFooter i {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
 }
 
 footer .textoTextoBranco {
@@ -523,7 +674,59 @@ footer .textoTextoBranco {
 .navbar-menu-footer .menuTranslate:hover {
   border-bottom: none;
   color: var(--ia-cor-clara);
-} @media (max-width: 768px){}@media (min-width: 1200px){}</style>
+}
+
+/* HERO */
+#containerEditavel-150414 .hero-headline {
+  margin: 0 0 1rem;
+  color: #fff;
+  font-size: clamp(2rem, 3.7vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+#containerEditavel-150414 .hero-headline span {
+  display: block;
+}
+
+#containerEditavel-150414 .hero-image {
+  display: block;
+  height: auto;
+}
+
+#containerEditavel-150414 .hero-tagline {
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+@media (max-width: 1199px) {
+  #containerEditavel-150414 {
+    padding-top: clamp(116px, 15vh, 140px) !important;
+  }
+
+  #containerEditavel-150414 .hero-headline {
+    font-size: clamp(1.9rem, 3.8vw, 2.4rem);
+  }
+}
+
+@media (max-width: 767px) {
+  #containerEditavel-150414 .hero-headline {
+    margin-bottom: 0.85rem;
+    font-size: clamp(1.65rem, 7.5vw, 2rem);
+    line-height: 1.15;
+  }
+
+  #containerEditavel-150414 .hero-tagline {
+    font-size: clamp(1rem, 4.5vw, 1.15rem);
+    line-height: 1.4;
+  }
+}
+</style>
 <script type='text/javascript'>$(document).ready(function(){//NAVBAR
 $(".navbar-collapse").removeClass('justify-content-center').addClass('justify-content-end px-2');
 
@@ -541,7 +744,7 @@ $('footer > .container').html($('.footerPersonalizado'));
 
 $(".footerPersonalizado").addClass("col-md-12");
 
-$(".logoFooter").html(`<p class="logoFooterImg m-0"><img loading="lazy" alt="Logomarca" src="${logo}.html"></p>`);
+$(".logoFooter").html(`<p class="logoFooterImg m-0"><img loading="lazy" alt="Logomarca" src="${logo}"></p>`);
 
 $("#numeroFooter .textoTextoBranco").html(`<span>${telefone1}</span>`);
 
@@ -570,10 +773,6 @@ setInterval(function () {
 <script>
   AOS.init();
 </script>
-<script src='//code.jivosite.com/widget/9gypUVRwzs' async></script>
-
-
-
 <script>
     $(document).ready(function () {
         var timeSldie = 2000;
@@ -625,7 +824,10 @@ setInterval(function () {
 <style>
     .btnZap {
         position: fixed;
-        left:20px; bottom:20px; z-index: 999999999;
+        right:20px;
+        bottom:20px;
+        left:auto;
+        z-index: 999999999;
     }
 
         .btnZap:hover {
@@ -723,7 +925,7 @@ setInterval(function () {
 
 
     <!--MENU-->
-    <nav class="navbar navbar-expand-lg fixed-top d-none d-md-block d-lg-block">
+    <nav class="navbar navbar-expand-xl fixed-top d-none d-xl-block site-header-desktop">
         <div class="container">
             <div class="navbar-brand">
                 <a class="Logo img-hover" href="index.html">
@@ -733,7 +935,13 @@ setInterval(function () {
             </div>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class='nav-item'><a class='nav-link' target='_self' href='index.html'>Início</a><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150415")'>Sobre</span><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150416")'>Diferenciais</span><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150417")'>Serviços</span><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150419")'>Depoimentos</span><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150420")'>FAQ</span><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150421")'>Contato</span>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150415" onclick="goTranslate('#containerEditavel-150415'); return false;">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150416" onclick="goTranslate('#containerEditavel-150416'); return false;">Diferenciais</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150417" onclick="goTranslate('#containerEditavel-150417'); return false;">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150419" onclick="goTranslate('#containerEditavel-150419'); return false;">Depoimentos</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150420" onclick="goTranslate('#containerEditavel-150420'); return false;">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150421" onclick="goTranslate('#containerEditavel-150421'); return false;">Contato</a></li>
                 </ul>
             </div>
             <div class="areaBotaoBandeira">
@@ -908,7 +1116,7 @@ setInterval(function () {
         </div>
     </nav>
 
-    <nav class="navbar fixed-top d-flex d-lg-none d-md-none navbar-menu align-items-center justify-content-between">
+    <nav class="navbar fixed-top d-flex d-xl-none navbar-menu align-items-center justify-content-between site-header-mobile">
         <div class="container-fluid">
             <a href="index.html">
                 <img src='cache2net/Repositorio/20715/Logo/logo.webp' alt="Logo" style="" class="logoSite d-inline-block align-text-top" loading="eager" fetchpriority="high" decoding="async" importance="high" />
@@ -1087,7 +1295,13 @@ setInterval(function () {
         <div class="w-100 collapse" id="navbarToggleExternalContent">
             <div class="p-4">
                 <ul class="navbar-nav nav-side">
-                    <li class='nav-item'><a class='nav-link' target='_self' href='index.html'>Início</a><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150415")'>Sobre</span><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150416")'>Diferenciais</span><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150417")'>Serviços</span><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150419")'>Depoimentos</span><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150420")'>FAQ</span><li class='nav-item'><span class='nav-link menuTranslate' onclick='goTranslate("#containerEditavel-150421")'>Contato</span>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150415" onclick="goTranslate('#containerEditavel-150415'); return false;">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150416" onclick="goTranslate('#containerEditavel-150416'); return false;">Diferenciais</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150417" onclick="goTranslate('#containerEditavel-150417'); return false;">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150419" onclick="goTranslate('#containerEditavel-150419'); return false;">Depoimentos</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150420" onclick="goTranslate('#containerEditavel-150420'); return false;">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link menuTranslate" href="#containerEditavel-150421" onclick="goTranslate('#containerEditavel-150421'); return false;">Contato</a></li>
                 </ul>
                 <a class="btn btn-lg btn btn-default btn-rounded w-100" style='background:;color:' href="https://wa.me/5531983616872?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20consulta...">
                     <i class="bi bi-whatsapp"></i> Entre em Contato
@@ -1315,7 +1529,9 @@ setInterval(function () {
 <div class="row row-1 d-flex justify-content-end align-items-center">
 <div class="col-12 col-md-6 col-lg-5" data-aos="fade-up" data-aos-duration="2000">
 <div class="content">
-<p class="textoTituloBranco textoAlinhar"><strong>A Precis&atilde;o Cir&uacute;rgica que a sua Vis&atilde;o Exige</strong></p>
+<h1 class="hero-headline textoAlinhar"><span>Dr. Fernando Calixto:</span> <span>Cirurgias de Catarata e Refrativa em BH</span></h1>
+
+<p class="hero-tagline textoAlinhar">A Precis&atilde;o Cir&uacute;rgica que a sua Vis&atilde;o Exige</p>
 
 <p class="textoTextoBranco textoAlinhar">Especialista em cirurgias de catarata e corre&ccedil;&atilde;o de grau, o <strong>Dr. Fernando Calixto</strong> une rigor t&eacute;cnico e tecnologia de ponta para devolver a voc&ecirc; uma vis&atilde;o n&iacute;tida, segura e independente.</p>
 
@@ -1325,7 +1541,7 @@ setInterval(function () {
 
 <div class="col-12 col-md-6 col-lg-5" data-aos="fade-right" data-aos-duration="1000">
 <div class="content">
-<div><img alt="Imagem Inicio" loading="lazy" src="cache2net/Repositorio/20715/Conteudos/150414/4.png" style="width: 100%;" /></div>
+<div><img class="hero-image" alt="Imagem Inicio" loading="lazy" src="cache2net/Repositorio/20715/Conteudos/150414/4.png" style="width: 100%;" /></div>
 </div>
 </div>
 </div>
@@ -1353,16 +1569,19 @@ setInterval(function () {
 
 <div class="container_conteudo_informativo" style='position:relative;max-width:100%;'>
         <div class="btgrid">
-<div class="row row-1 d-flex justify-content-center align-items-center">
-<div class="col-12 col-md-6 order-2 order-md-1" data-aos="fade-down" data-aos-duration="1000">
+<div class="row row-1 d-flex justify-content-center align-items-start">
+<div class="col-12 col-lg-6 order-2 order-lg-1" data-aos="fade-down" data-aos-duration="1000">
 <div class="content">
 <p style="text-align: center;"><img alt="Imagem Sobre" loading="lazy" src="cache2net/Repositorio/20715/Conteudos/150415/imagem4.png" style="width: 90%; border-radius: 20px;" /></p>
 </div>
 </div>
 
-<div class="col-12 col-md-6 order-1 order-md-2" data-aos="fade-right" data-aos-duration="1000">
+<div class="col-12 col-lg-6 order-1 order-lg-2" data-aos="fade-right" data-aos-duration="1000">
 <div class="content">
+<div class="titulo-sobre-com-selo">
 <p class="textoTitulo textoAlinhar">Sobre o Dr Fernando Calixto</p>
+<div class="selo-fixo"><img alt="Selo de reconhecimento" loading="lazy" src="cache2net/Repositorio/20715/Conteudos/150415/selo2.png" /></div>
+</div>
 
 <p style="text-align: justify;"><strong>Percurso Acad&ecirc;mico e Profissional</strong><br />
 A carreira do Dr. Fernando Calixto &eacute; definida pelo rigor t&eacute;cnico e pelo compromisso com a precis&atilde;o, valores cultivados desde sua forma&ccedil;&atilde;o b&aacute;sica no <strong>Col&eacute;gio Santo Ant&ocirc;nio</strong>, em Belo Horizonte. Graduado pela Faculdade de Medicina de Petr&oacute;polis, demonstrou cedo sua voca&ccedil;&atilde;o para a lideran&ccedil;a e a produ&ccedil;&atilde;o cient&iacute;fica: foi autor do livro <em>Cl&iacute;nica Cir&uacute;rgica para o Generalista</em>, fundou a Liga de Oftalmologia da institui&ccedil;&atilde;o e foi palestrante no Congresso Internacional da Sociedade Brasileira de Oftalmologia.</p>
@@ -1382,43 +1601,30 @@ Com uma d&eacute;cada de forma&ccedil;&atilde;o imersiva e s&oacute;lida experi&
 </div>
 </div>
 
-<div class="selo-fixo"><img alt="Selo" src="cache2net/Repositorio/20715/Conteudos/150415/selo2.png" /></div>
-<style type="text/css">/* CONTAINER DA SESSÃO */
-#containerEditavel-150415{
-    position: relative !important;
+<style type="text/css">
+#containerEditavel-150415 .titulo-sobre-com-selo {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.5vw, 20px);
+    margin-bottom: 16px;
 }
 
-/* SELO */
-#containerEditavel-150415 .selo-fixo{
-
-    position: absolute;
-
-    top: 150px;
-    right: -110px;
-
-    width: 120px;
-
-    z-index: 99;
+#containerEditavel-150415 .titulo-sobre-com-selo .textoTitulo {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    line-height: 1.2;
 }
 
-#containerEditavel-150415 .selo-fixo img{
+#containerEditavel-150415 .selo-fixo {
+    flex: 0 0 clamp(64px, 6vw, 84px);
+    width: clamp(64px, 6vw, 84px);
+}
 
-    width: 100%;
+#containerEditavel-150415 .selo-fixo img {
     display: block;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    #containerEditavel-150415 .selo-fixo{
-
-        width: 80px;
-
-                top: -74px;
-        right: 5px;
-    }
-
+    width: 100%;
+    height: auto;
 }
 </style>
 
@@ -1730,7 +1936,7 @@ Indicada para corre&ccedil;&atilde;o de miopia, hipermetropia e astigmatismo, a 
 
 <div class="col-12 col-md-6 order-1 order-md-2" data-aos="fade-right" data-aos-duration="1000">
 <div class="content">
-<p style="text-align: center;"><img alt="Imagem Planos" loading="lazy" src="cache2net/Repositorio/20715/Conteudos/150417/iagem5.png" style="width: 90%; border-radius: 20px;" /></p>
+<p style="text-align: center;"><img alt="Dr. Fernando Calixto durante cirurgia oftalmológica" loading="lazy" src="cache2net/Repositorio/20715/Conteudos/150417/dr-fernando-calixto-01.jpeg" style="width: 90%; border-radius: 20px;" /></p>
 </div>
 </div>
 </div>
@@ -1876,7 +2082,8 @@ Indicada para corre&ccedil;&atilde;o de miopia, hipermetropia e astigmatismo, a 
 <script>
 const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
   loop: true,
-  slidesPerView:1,
+  slidesPerView: 1,
+  spaceBetween: 16,
   navigation: {
     	prevEl: ".swiper-button-prev",
         nextEl: ".swiper-button-next",
@@ -1885,10 +2092,10 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
    delay: 10000,
  },
     breakpoints: {
-    770: {
+    768: {
       slidesPerView: 2,
     },
-    1000: {
+    1200: {
       slidesPerView: 3,
     },
   }
@@ -1896,10 +2103,10 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 </script>
 <style type="text/css">.feedbackCard {
     padding: 40px 30px;
-    margin: 0 10px;
+    width: 100%;
     border-radius: 2rem;
     box-shadow: 0 0 11px -6px #0000002e;
-    height: 280px;
+    min-height: 280px;
     background: var(--ia-cor-clara);
     color: var(--ia-cor-escura);
 }
@@ -1914,9 +2121,18 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 }
 .feedbackCard p {
     font-size: 1rem;
+    line-height: 1.5;
+    overflow-wrap: break-word;
 }
 .mySwiperDepoimento {
-    padding: 15px 0;
+    padding: 15px 4px 4px;
+}
+.mySwiperDepoimento .swiper-wrapper {
+    align-items: stretch;
+}
+.mySwiperDepoimento .swiper-slide {
+    display: flex;
+    height: auto;
 }
 .swiper-button-next,
 .swiper-button-prev {
@@ -1942,16 +2158,39 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
 }
 .titleClient img {
     width: 60px;
     height: 60px;
     border-radius: 6rem;
+    object-fit: cover;
 }
   .estrelas i {
     color: #FDD663;
   }
+@media (max-width: 575px) {
+    .feedbackCard {
+        padding: 24px 20px;
+        min-height: 0;
+        border-radius: 20px;
+    }
+
+    .feedbackCard p {
+        font-size: 15px;
+    }
+
+    .titleClient img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
 </style>
 
 </div>
@@ -1994,6 +2233,13 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 <div class="col-12">
 <div class="content">
 <ul data-aos="zoom-in-up" data-aos-duration="1000" id="FAQ">
+	<li>
+	<p role="button" tabindex="0">Quais conv&ecirc;nios o Dr. Fernando Calixto atende? <i class="fa fa-angle-down icone-lista"></i></p>
+
+	<div class="conteudo-item">
+	<p>O Dr. Fernando Calixto atende pelos conv&ecirc;nios Unimed, CASSI, Ita&uacute;, Bradesco, AMAGIS e Caixa. Tamb&eacute;m oferece atendimento particular.</p>
+	</div>
+	</li>
 	<li>
 	<p role="button" tabindex="0">Como posso ficar livre dos &Oacute;culos? <i class="fa fa-angle-down icone-lista"></i></p>
 
@@ -2169,12 +2415,12 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 <p>&nbsp;</p>
 
 <div class="btgrid fundoContato">
-<div class="row row-1">
-<div class="col col-md-7 col-12">
+<div class="row row-1 g-4 align-items-center">
+<div class="col-12 col-lg-6">
 <div class="content">
 <div class="row">
 <div class="col-md-12">
-<p class="textoSubTituloBranco alinharCanais" style="margin-left: 40px;">Canais</p>
+<p class="textoSubTituloBranco tituloContato">Canais</p>
 </div>
 </div>
 
@@ -2185,8 +2431,8 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 			<td><a class="textoContato" href="https://wa.me/5531983616872">(31) 98361-6872</a></td>
 		</tr>
 		<tr>
-			<td><a href="https://www.instagram.com/fernandocalixto_"><span class="iconeContato bi bi-instagram"></span></a></td>
-			<td><a class="textoContato" href="https://www.instagram.com/fernandocalixto_">@fernandocalixto_</a></td>
+			<td><a href="https://www.instagram.com/dr.fernandocalixto/"><span class="iconeContato bi bi-instagram"></span></a></td>
+			<td><a class="textoContato" href="https://www.instagram.com/dr.fernandocalixto/">@dr.fernandocalixto</a></td>
 		</tr>
 		<tr>
 			<td><span class="iconeContato bi bi-clock"></span></td>
@@ -2195,7 +2441,27 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 	</tbody>
 </table>
 
+<div class="locaisContato">
+<p class="textoSubTituloBranco tituloContato">Locais de atendimento</p>
+<div class="enderecoContato">
+<span class="iconeContato bi bi-geo-alt" aria-hidden="true"></span>
+<address class="textoContato"><strong>Centro Oftalmológico de Minas Gerais</strong>R. Santa Catarina, 941 - Lourdes,<br />Belo Horizonte - MG</address>
+</div>
+<div class="enderecoContato">
+<span class="iconeContato bi bi-geo-alt" aria-hidden="true"></span>
+<address class="textoContato"><strong>Hospital de Olhos Rui Marinho</strong>Av. Vilarinho, 901 - Venda Nova,<br />Belo Horizonte - MG</address>
+</div>
+</div>
+
 <p class="alinharCanais"><a class="btn btn-danger botao_whatsapp" href="https://wa.me/5531983616872"><i class="bi bi-whatsapp"></i> Agendar Consulta</a></p>
+</div>
+</div>
+<div class="col-12 col-lg-6">
+<div class="content">
+<p class="textoSubTituloBranco tituloContato">Perfil no Google Maps</p>
+<div class="mapaContato">
+<iframe title="Perfil do Dr. Fernando Calixto no Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4444.414904864309!2d-43.945194099999995!3d-19.9290005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa68f9e68f96f05%3A0xd30bb3b12bff483!2sDr.%20Fernando%20Calixto%20-%20Oftalmologista!5e1!3m2!1spt-BR!2sbr!4v1790700572547!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
 </div>
 </div>
 </div>
@@ -2223,6 +2489,57 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
     font-size: 30px;
   }
 
+  .tituloContato {
+    margin: 0 0 12px 15px;
+  }
+
+  .locaisContato {
+    margin: 12px 15px 0;
+  }
+
+  .enderecoContato {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0 0 14px;
+  }
+
+  .enderecoContato .iconeContato {
+    flex: 0 0 30px;
+    padding-top: 2px;
+  }
+
+  .enderecoContato address {
+    margin: 0;
+    color: var(--ia-cor-clara);
+    font-size: 16px;
+    font-style: normal;
+    line-height: 1.5;
+  }
+
+  .enderecoContato strong {
+    display: block;
+    font-weight: 600;
+  }
+
+  .mapaContato {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: 300px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #e5e5e5;
+  }
+
+  .mapaContato iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
   .textoContato {
     font-size: 16px;
     font-weight: 400 !important;
@@ -2240,7 +2557,7 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 
   @media (max-width: 767px) {
     .textoContato {
-      font-size: 14px !important;
+      font-size: 15px !important;
     }
 
     .alinharCanais,
@@ -2250,7 +2567,21 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
     }
 
     .fundoContato{
-     padding: 40px 20px !important;
+     padding: 24px 18px !important;
+    }
+
+    .tituloContato,
+    .locaisContato {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .enderecoContato address {
+      font-size: 15px;
+    }
+
+    .mapaContato {
+      min-height: 280px;
     }
 }
 </style>
@@ -2284,18 +2615,18 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 <div class="container_conteudo_informativo" style='position:relative;max-width:100%;'>
         <div class="footerPersonalizado">
 <div class="btgrid">
-<div class="row row-1 d-flex justify-content-center">
-<div class="col-12 col-md-5 col-lg-4 marginMobile">
+<div class="row row-1 g-4 justify-content-between">
+<div class="col-12 col-md-6 col-xl-4">
 <div class="content">
 <div class="logoFooter">&nbsp;</div>
 
-<p class="textoTextoBranco" style="text-align: justify;">Excel&ecirc;ncia em Oftalmologia, tecnologia avan&ccedil;ada e cuidado humanizado para preservar a sua vis&atilde;o.</p>
+<p class="textoTextoBranco" style="text-align: left;">Excel&ecirc;ncia em Oftalmologia, tecnologia avan&ccedil;ada e cuidado humanizado para preservar a sua vis&atilde;o.</p>
 
 <div class="redesSociais">&nbsp;</div>
 </div>
 </div>
 
-<div class="col-12 col-md-2 col-lg-2 marginMobile">
+<div class="col-12 col-md-6 col-xl-3">
 <div class="content">
 <p class="menuRaiz">Institucional</p>
 
@@ -2303,7 +2634,7 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 </div>
 </div>
 
-<div class="col-12 col-md-5 col-lg-4 marginMobile">
+<div class="col-12 col-xl-4">
 <div class="content">
 <p class="menuRaiz">Contato</p>
 
@@ -2355,10 +2686,10 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 <div class="redeSocial">
     
 			<script>
-				var instagram = `https://www.instagram.com/fernandocalixto_`;
+				var instagram = `https://www.instagram.com/dr.fernandocalixto/`;
 			</script>
             <div class="itenSocial">
-                <a class='icone-instagram' target="_blank" href="https://www.instagram.com/fernandocalixto_" aria-label="instagram">
+                <a class='icone-instagram' target="_blank" href="https://www.instagram.com/dr.fernandocalixto/" aria-label="instagram">
                     <i class='bi bi-instagram'></i>
                 </a>
             </div>
@@ -2371,13 +2702,6 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
             <div class="container-fluid d-flex justify-content-center align-items-center">
                 <div class="copyright py-3 text-center">
                     © 2026 Fernando Calixto | Oftalmologista. Direitos reservados.<br />
-                    <a class="access" href="https://www.2net.com.br/Sistema/Acesso/Login.aspx?emp=20715" target="_blank" aria-label="Gerenciador de Sites">
-                        <i class="fa fa-cog"></i>
-                    </a>
-                    <a class="access" href="https://webmail.fernandocalixto.com.br" target="_blank" aria-label="Email">
-                        <i class="fa fa-envelope"></i>
-                    </a>
-                    <span style='cursor:pointer' class='icon_rodape' onclick='window.open("index.aspx?emp=20715&edit=t","_self")'  title='Modo edição do site'><i class='fa fa-pencil-square-o fa-edit fas' aria-hidden='true' style='font-size: 15px; margin: 2px'></i></span>
                 </div>
             </div>
         </footer>
@@ -2404,8 +2728,7 @@ const mySwiperDepoimento = new Swiper('.mySwiperDepoimento', {
 		
         <script src="Utilitarios/lightbox/js/lightbox.min.js"></script>
         <script src="Scripts/mask.js"></script>
-		<script src="sites/032/Script/ScriptMod.js"></script>
-        <script data-emp='20715' src="Scripts/denuncia-conteudo.js"></script>
+		<script src="sites/032/Script/ScriptMod.js?v=2"></script>
     </div>
 </body>
 </html>
